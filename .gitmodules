@@ -1,0 +1,3 @@
+[submodule "echo-api-simulator"]
+	path = server
+	url = https://github.com/tritech-software-solutions/echo-api-simulator.git
