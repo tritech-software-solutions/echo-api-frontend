@@ -2,6 +2,7 @@ import "./Card.css";
 
 import React from "react";
 
+
 type Props = {
     children?: React.ReactNode;
     className?: string;
@@ -9,7 +10,9 @@ type Props = {
 
 class Card extends React.Component<Props> {
     render() {
-        return <div className={"card" + (this.props.className ? " " + this.props.className : "")}>{this.props.children}</div>;
+        return <div className={"card" + (this.props.className ? " " + this.props.className : "")}>
+            {this.props.children}
+            </div>;
     }
 }
 

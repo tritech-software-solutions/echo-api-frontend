@@ -15,11 +15,6 @@ class Button extends React.Component<Props, State> {
         isClicked: false,
     };
 
-    componentDidMount(): void {}
-
-    componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<{}>, snapshot?: any): void {}
-
-    componentWillUnmount(): void {}
 
     render() {
         return (
