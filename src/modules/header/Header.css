@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Jaldi';
+    src: url('/src/public/fonts/Jaldi-Regular.ttf') format('truetype')
+
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+
+    position: absolute;
+    left: 5%;
+    top: 34px;
+}
+
+.text {
+    font-family: 'Jaldi';
+    font-size: 20px;
+    text-align: center;
+
+    width: 115px;
+    height: 40px;
+
+    color: #6D6D6D;
+}
+
+.logo {
+    height: 61px;
+    width: 61px;
+}
