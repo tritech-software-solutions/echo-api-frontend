@@ -16,8 +16,9 @@
 
 .background1 {
     position: fixed;
-    top: -29px;
-    right: 0;
+    scale: 110%;
+    top: -4px;
+    right: -4px;
     z-index: -1;
 }
 
@@ -28,7 +29,7 @@
     gap: 44px;
 
     position: absolute;
-    left: 2.4%;
+    left: 8%;
     top: 150px
 }
 
