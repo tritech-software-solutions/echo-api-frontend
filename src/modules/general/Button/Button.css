@@ -1,0 +1,74 @@
+.svg-icon .eye-icon {
+    width: 27px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.svg-icon .plus-icon {
+    width: 22px;
+    stroke: #FFFFFF;
+    stroke-width: 15px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.svg-icon {
+    fill: #FFFFFF;
+    
+}
+
+.button {
+    display: flex;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.text-button .button-icon {
+    display: flex;
+
+    width: 243px;
+    height: 50px;
+
+    background: linear-gradient(315deg, #1BB3A8 50%, rgba(27, 179, 168, 0.5) 100%);
+    
+    color: white;
+    font-family: 'Viga';
+    font-size: 20px;
+}
+
+.button-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 46px;
+    height: 46px;
+    
+    background: linear-gradient(315deg, #1BB3A8 50%, rgba(27, 179, 168, 0.5) 100%);
+    
+    color: white;
+    font-family: 'Viga';
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.button-extension {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 245px;
+    height: 46px;
+
+    background: #FFFFFF;
+    border-radius: 0px;
+
+    font-family: 'Viga';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #27216B;
+}

@@ -1,33 +1,41 @@
 import "./Button.css";
-
 import React from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 type Props = {
     text?: string;
+    icon?: React.ReactNode;
+    hasText?: boolean;
+    className?: string;
 };
 
-type State = {
-    isClicked: boolean;
-};
-
-class Button extends React.Component<Props, State> {
-    state = {
-        isClicked: false,
-    };
-
-
+class Button extends React.Component<Props> {
     render() {
-        return (
-            <div className={this.state.isClicked ? "clicked" : "notClicked"} onClick={this.buttonClick}>
-                {this.props.text}
-            </div>
-        );
-    }
+        const { text, icon, hasText, className} = this.props;
 
-    buttonClick(e: any) {
-        this.setState({
-            isClicked: true,
-        });
+        const buttonClassName = `button ` + (className ? ` ${className}` : "");
+
+        // Conditionally render different content based on the `hasText` prop
+        if (hasText) {
+            return (
+                <div className={buttonClassName}>
+                    <div className="button-icon">
+                        <div className="svg-icon">{icon}</div>  
+                    </div>
+                    <div className="button-extension">{text}</div>
+                </div>
+            );
+        } else {
+            return (
+                <div className={buttonClassName}>
+                    <div className="button-icon">
+                        <div className="svg-icon">{icon}</div>
+                    </div>
+                </div>
+            );
+        }
     }
 }
 
