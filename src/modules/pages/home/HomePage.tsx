@@ -5,6 +5,7 @@ import React from "react";
 
 import Background1 from "../../../assets/background1.png"
 import { ReactComponent as EyeSvg } from '../../../assets/icons/eye-regular.svg';
+import { ReactComponent as ChartSvg } from '../../../assets/icons/chart-simple-solid.svg';
 import { ReactComponent as PlusSvg } from '../../../assets/icons/plus-solid.svg';
 import GraphSvg from '../../../assets/graph.png';
 
@@ -14,7 +15,8 @@ class HomePage extends React.Component {
     
     buttonText = [
         "Create New Simulator",
-        "View Current Simulations"
+        "View Current Simulations",
+        "View Analytics"
     ]
 
     render() {
@@ -41,8 +43,8 @@ class HomePage extends React.Component {
                             </p>
                             <Button 
                                 text={this.buttonText[1]}
-                                hasText={true} icon={<EyeSvg
-                                className="eye-icon"/>}
+                                hasText={true} 
+                                icon={<EyeSvg className="eye-icon"/>}
                                 />
                         </Card>
                     </div>
@@ -55,9 +57,9 @@ class HomePage extends React.Component {
                             Analytics are a window into how your application is interacting with the API without actually using the API. Gain critical insights into what endpoints your app is calling and how often it is making those calls. Great for debugging and verifying that your application is performing tasks as expected.
                         </p>
                         <Button 
-                            className="text-button" 
-                            hasText={false}
-                            icon={<div>View Analytics</div>}
+                            text={this.buttonText[2]} 
+                            hasText={true}
+                            icon={<ChartSvg className="chart-icon"/>}
                         />
                     </Card>
                 </div>
