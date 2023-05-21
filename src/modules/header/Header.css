@@ -1,8 +1,3 @@
-@font-face {
-    font-family: 'Jaldi';
-    src: url('/src/public/fonts/Jaldi-Regular.ttf') format('truetype')
-
-}
 
 .header {
     display: flex;

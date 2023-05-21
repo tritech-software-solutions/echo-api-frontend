@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'Viga';
+  src: url('/public/fonts/Viga-Regular.ttf') format('truetype')
+
+}
+
+@font-face {
+  font-family: 'Jaldi';
+  src: url('/public/fonts/Jaldi-Regular.ttf') format('truetype')
+
+}
+
 .App {
   text-align: center;
 }

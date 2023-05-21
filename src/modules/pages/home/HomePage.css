@@ -1,22 +1,9 @@
-@font-face {
-    font-family: 'Viga';
-    src: url('/src/public/fonts/Viga-Regular.ttf') format('truetype')
-
-}
-
-@font-face {
-    font-family: 'Jaldi';
-    src: url('/src/public/fonts/Jaldi-Regular.ttf') format('truetype')
-
-}
-
 .home {
     position: relative;
 }
 
 .background1 {
     position: fixed;
-    scale: 110%;
     top: -4px;
     right: -4px;
     z-index: -1;
