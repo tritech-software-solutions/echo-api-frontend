@@ -1,3 +1,6 @@
+:root {
+    --header-height: 130px;
+}
 
 .header {
     display: flex;
@@ -5,23 +8,26 @@
     align-items: center;
     gap: 100px;
 
-    position: absolute;
-    left: 5%;
-    top: 34px;
+    width: 90vw;
+    padding: 30px 5%;
 }
 
 .text {
-    font-family: 'Jaldi';
+    font-family: "Jaldi";
     font-size: 20px;
     text-align: center;
 
     width: 115px;
     height: 40px;
 
-    color: #6D6D6D;
+    color: #6d6d6d;
 }
 
 .logo {
     height: 61px;
     width: 61px;
+}
+
+.header-spacer {
+    height: var(--header-height);
 }
