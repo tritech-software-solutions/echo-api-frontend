@@ -1,0 +1,42 @@
+:root {
+    --header-height: 130px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+
+    width: 90vw;
+    padding: 30px 5%;
+}
+
+.text {
+    font-family: "Jaldi";
+    font-size: 20px;
+    text-align: center;
+
+    width: 115px;
+    height: 40px;
+
+    color: #6d6d6d;
+}
+
+.logo {
+    height: 61px;
+    width: 61px;
+}
+
+.header-spacer {
+    height: var(--header-height);
+}
+
+.headerTitle {
+    text-decoration: none;
+}
+  
+.headerTitle.active {
+    text-decoration: underline #27216bC0;
+    
+}
