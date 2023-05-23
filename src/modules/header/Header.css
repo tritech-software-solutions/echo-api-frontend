@@ -31,3 +31,12 @@
 .header-spacer {
     height: var(--header-height);
 }
+
+.headerTitle {
+    text-decoration: none;
+}
+  
+.headerTitle.active {
+    text-decoration: underline #27216bC0;
+    
+}

@@ -31,7 +31,7 @@ class HomePage extends React.Component {
                             <p className="description">
                                 Create a locally hosted API that can be used for testing your application. Simulate any existing API without the fear of making too many unnecessary calls, or dealing with changing data. 
                             </p>
-                            <Link to="/" className="noSelect noDecoration headerTitle">
+                            <Link to="/endpoint" className="noSelect noDecoration headerTitle">
                                 <Button
                                     text={this.buttonText[0]}
                                     hasText={true}
@@ -44,7 +44,7 @@ class HomePage extends React.Component {
                             <p className="description">
                                 View your created API simulators. Run for testing or make changes to your existing setups.
                             </p>
-                            <Link to="/" className="noSelect noDecoration headerTitle">
+                            <Link to="/view" className="noSelect noDecoration headerTitle">
                                 <Button 
                                     text={this.buttonText[1]}
                                     hasText={true} 
