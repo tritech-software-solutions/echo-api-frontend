@@ -1,0 +1,37 @@
+.custom-input {
+    border: 1.5px solid #D9D9D9;
+    outline: none;
+
+    font-family: "Viga";
+    color: #6d6d6d95;
+    text-align: center;
+
+    height: 45px;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow-y: auto;
+  }
+
+  
+.custom-input.selected {
+    border: 2.5px solid #27216B;
+    font-size: 14px;
+    color: #6d6d6d;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    width: fit-content;
+}
+
+.input-name {
+    font-family: "Viga";
+    color: #6d6d6d95;
+    size: 14px;
+    margin: 0;
+    height: 19px;
+    width: fit-content;
+}
