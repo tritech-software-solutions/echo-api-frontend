@@ -23,6 +23,21 @@
     }
 }
 
+.background1 {
+    position: fixed;
+    top: -4px;
+    right: -4px;
+    z-index: -1;
+}
+
+.background2 {
+    position: fixed;
+    bottom: -4px;
+    left: -4px;
+    z-index: -1;
+    transform: scaleX(-1) scaleY(-1);
+}
+
 .App-header {
     background-color: #282c34;
     min-height: 100vh;
