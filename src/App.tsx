@@ -54,7 +54,10 @@ const lightTheme = createTheme({
     },
     typography: {
         fontFamily: "Viga, Jaldi",
+        h1: { fontSize: 52 },
         h2: { fontSize: 40 },
+        h3: { fontSize: 32 },
+        h4: { fontSize: 28 },
         body1: { fontFamily: "Jaldi", fontSize: 20 },
         body2: { fontFamily: "Jaldi" },
     },
@@ -72,9 +75,15 @@ const lightTheme = createTheme({
             },
         },
         MuiInputBase: {
+            defaultProps: {
+                size: "small",
+            },
             styleOverrides: {
                 root: {
                     minWidth: "200px",
+                },
+                input: {
+                    lineHeight: "1em",
                 },
             },
         },
@@ -92,6 +101,16 @@ const lightTheme = createTheme({
                     alignContent: "center",
                     textAlign: "center",
                 },
+            },
+        },
+        MuiInputLabel: {
+            defaultProps: {
+                size: "small",
+            },
+        },
+        MuiSelect: {
+            defaultProps: {
+                size: "small",
             },
         },
     },
