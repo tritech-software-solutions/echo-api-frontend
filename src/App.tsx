@@ -71,6 +71,29 @@ const lightTheme = createTheme({
                 },
             },
         },
+        MuiInputBase: {
+            styleOverrides: {
+                root: {
+                    minWidth: "200px",
+                },
+            },
+        },
+        MuiAccordion: {
+            styleOverrides: {
+                root: {
+                    width: "100%",
+                },
+            },
+        },
+        MuiAccordionSummary: {
+            styleOverrides: {
+                content: {
+                    display: "flex",
+                    alignContent: "center",
+                    textAlign: "center",
+                },
+            },
+        },
     },
 });
 
