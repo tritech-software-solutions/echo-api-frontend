@@ -1,0 +1,22 @@
+.line-number-input {
+    display: flex;
+    align-items: stretch;
+}
+
+    .line-numbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-right: 8px;
+    border-right: 1px solid #ccc;
+    user-select: none;
+}
+
+    .line-number {
+    font-size: 20px;
+    line-height: 1.4375em;
+    padding: 0px 8px;
+    font-weight: 400;
+    font-family: Jaldi;
+}
