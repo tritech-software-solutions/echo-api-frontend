@@ -5,7 +5,7 @@ import LineNumberInput from "../../general/LineNumberedInput/LinedNumberedInput"
 
 class EndpointViewer extends React.Component {
     render() {
-        return <LineNumberInput />;
+        return <p>Endpoint Viewer Here</p>;
     }
 }
 

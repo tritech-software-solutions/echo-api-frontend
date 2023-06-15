@@ -29,9 +29,6 @@ class LineNumberInput extends React.Component<Props, State> {
                     onChange={this.handleChange}
                     onKeyDown={this.handleKeyDown}
                     label="Body"
-                    sx={{
-                        fontSize: 14,
-                    }}
                     multiline
                 />
             </div>
