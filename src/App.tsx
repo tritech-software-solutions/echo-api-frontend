@@ -82,9 +82,6 @@ const lightTheme = createTheme({
                 root: {
                     minWidth: "200px",
                 },
-                input: {
-                    lineHeight: "1em",
-                },
             },
         },
         MuiAccordion: {
