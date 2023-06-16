@@ -24,6 +24,7 @@ import {
     IconButton,
 } from "@mui/material";
 import { BoxProps, Container, StackProps } from "@mui/system";
+import LineNumberInput from "../../general/LineNumberedInput/LinedNumberedInput";
 
 type Props = {};
 
@@ -33,9 +34,9 @@ type State = {
     endpoint: string;
 };
 
-const TitleRowStack = styled((props: StackProps) => (
-    <Stack direction={"row"} spacing={2} width={"100%"} {...props} />
-))<StackProps>(({ theme }) => ({}));
+const TitleRowStack = styled((props: StackProps) => <Stack direction={"row"} spacing={2} width={"100%"} {...props} />)<StackProps>(
+    ({ theme }) => ({})
+);
 
 class EndpointEditor extends React.Component<Props, State> {
     constructor(props: Props) {
@@ -75,12 +76,7 @@ class EndpointEditor extends React.Component<Props, State> {
                                     onBlur={this.handleEndpointChange}
                                     defaultValue={this.state.endpoint}
                                 />
-                                <Button
-                                    color="secondary"
-                                    variant="contained"
-                                    sx={{ margin: "auto 0" }}
-                                    onFocus={this.handleNewTitle}
-                                >
+                                <Button color="secondary" variant="contained" sx={{ margin: "auto 0" }} onFocus={this.handleNewTitle}>
                                     Submit
                                 </Button>
                             </TitleRowStack>
@@ -111,12 +107,7 @@ class EndpointEditor extends React.Component<Props, State> {
                                 <TextField id="param1-value-input" label="Value" variant="outlined" />
                                 <FormControl>
                                     <InputLabel id="param1-type-input-label">Type</InputLabel>
-                                    <Select
-                                        labelId="param1-type-input-label"
-                                        id="param1-type-input"
-                                        value={undefined}
-                                        label="Type"
-                                    >
+                                    <Select labelId="param1-type-input-label" id="param1-type-input" value={undefined} label="Type">
                                         <MenuItem value={"any"}>Any</MenuItem>
                                         <MenuItem value={"number"}>Number</MenuItem>
                                         <MenuItem value={"boolean"}>Boolean</MenuItem>
@@ -132,7 +123,7 @@ class EndpointEditor extends React.Component<Props, State> {
                             <Stack spacing={1} direction={"row"}>
                                 <TextField id="outlined-number" label="Status" type="number" sx={{ maxWidth: "15em" }} />
                             </Stack>
-                            <TextField id="response-content" label="Multiline" multiline rows={8} defaultValue="" />
+                            <LineNumberInput label="Body" />
                         </Stack>
                     </Stack>
                 </CardContent>

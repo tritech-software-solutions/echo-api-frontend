@@ -3,7 +3,9 @@ import { TextField } from "@mui/material";
 
 import React from "react";
 
-type Props = {};
+type Props = {
+    label: string;
+};
 
 type State = {
     value: string;
@@ -15,7 +17,7 @@ class LineNumberInput extends React.Component<Props, State> {
         super(props);
         this.state = {
             value: "",
-            lineNumbers: 1,
+            lineNumbers: 0,
         };
     }
 
@@ -28,8 +30,13 @@ class LineNumberInput extends React.Component<Props, State> {
                     value={this.state.value}
                     onChange={this.handleChange}
                     onKeyDown={this.handleKeyDown}
-                    label="Body"
+                    label={this.props.label}
                     multiline
+                    sx={{
+                        "& .MuiInputBase-input": {
+                            marginLeft: "2em",
+                        },
+                    }}
                 />
             </div>
         );
@@ -37,8 +44,10 @@ class LineNumberInput extends React.Component<Props, State> {
 
     handleChange = (evt: React.FormEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         const value = evt.currentTarget.value;
-        console.log(value);
-        const lineNumbers = value.split("\n").length;
+        let lineNumbers = value.split("\n").length;
+        if (value === "") {
+            lineNumbers = 0;
+        }
         this.setState({ value, lineNumbers });
     };
 

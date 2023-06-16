@@ -10,7 +10,8 @@
     align-items: flex-end;
     padding-right: 8px;
     user-select: none;
-    margin-top: .45em;
+    margin-top: .4em;
+    position: absolute;
 }
 
     .line-number {
