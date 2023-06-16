@@ -75,42 +75,6 @@ class EndpointEditor extends React.Component<Props, State> {
             <Card className="endpoint-editor-card">
                 <CardContent>
                     <Stack divider={<Divider orientation="vertical" flexItem />} spacing={1}>
-<<<<<<< HEAD
-                        {this.state.isEditingTitle ? (
-                            <TitleRowStack>
-                                <TextField
-                                    id="name-input"
-                                    label="Name"
-                                    variant="outlined"
-                                    required
-                                    onBlur={this.handleNameChange}
-                                    defaultValue={this.state.name}
-                                />
-                                <TextField
-                                    id="endpoint-input"
-                                    label="Endpoint"
-                                    variant="outlined"
-                                    required
-                                    onBlur={this.handleEndpointChange}
-                                    defaultValue={this.state.endpoint}
-                                />
-                                <Button color="secondary" variant="contained" sx={{ margin: "auto 0" }} onFocus={this.handleNewTitle}>
-                                    Submit
-                                </Button>
-                            </TitleRowStack>
-                        ) : (
-                            <TitleRowStack spacing={0}>
-                                <Typography variant="h1" color="primary">
-                                    {this.state.name} | {this.state.endpoint}
-                                </Typography>
-                                <Box>
-                                    <IconButton aria-label="edit" onFocus={this.handleNewTitle}>
-                                        <EditIcon />
-                                    </IconButton>
-                                </Box>
-                            </TitleRowStack>
-                        )}
-=======
                         <Stack direction="row" justifyContent="space-between">
                             {this.state.isEditingTitle ? (
                                 <TitleRowStack>
@@ -130,12 +94,7 @@ class EndpointEditor extends React.Component<Props, State> {
                                         onBlur={this.handleEndpointChange}
                                         defaultValue={this.state.endpoint}
                                     />
-                                    <Button
-                                        color="secondary"
-                                        variant="contained"
-                                        sx={{ margin: "auto 0" }}
-                                        onFocus={this.handleNewTitle}
-                                    >
+                                    <Button color="secondary" variant="contained" sx={{ margin: "auto 0" }} onFocus={this.handleNewTitle}>
                                         Submit
                                     </Button>
                                 </TitleRowStack>
@@ -155,7 +114,6 @@ class EndpointEditor extends React.Component<Props, State> {
                                 <Button size="large">Headers</Button>
                             </Box>
                         </Stack>
->>>>>>> 89d1af57287d3f6749d90455b3a7144fc6a0be86
 
                         <Stack spacing={1}>
                             <TitleRowStack>
@@ -166,20 +124,6 @@ class EndpointEditor extends React.Component<Props, State> {
                                     <AddIcon />
                                 </IconButton>
                             </TitleRowStack>
-<<<<<<< HEAD
-                            <Stack spacing={1} direction={"row"}>
-                                <TextField id="param1-name-input" label="Name" variant="outlined" />
-                                <TextField id="param1-value-input" label="Value" variant="outlined" />
-                                <FormControl>
-                                    <InputLabel id="param1-type-input-label">Type</InputLabel>
-                                    <Select labelId="param1-type-input-label" id="param1-type-input" value={undefined} label="Type">
-                                        <MenuItem value={"any"}>Any</MenuItem>
-                                        <MenuItem value={"number"}>Number</MenuItem>
-                                        <MenuItem value={"boolean"}>Boolean</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Stack>
-=======
 
                             {this.state.parameters.map((value, index) => {
                                 return (
@@ -218,7 +162,6 @@ class EndpointEditor extends React.Component<Props, State> {
                                     </Stack>
                                 );
                             })}
->>>>>>> 89d1af57287d3f6749d90455b3a7144fc6a0be86
                         </Stack>
 
                         <Stack spacing={1}>
@@ -228,11 +171,7 @@ class EndpointEditor extends React.Component<Props, State> {
                             <Stack spacing={1} direction={"row"}>
                                 <TextField id="outlined-number" label="Status" type="number" sx={{ maxWidth: "15em" }} />
                             </Stack>
-<<<<<<< HEAD
                             <LineNumberInput label="Body" />
-=======
-                            <TextField id="response-content" label="Body" multiline rows={8} defaultValue="" />
->>>>>>> 89d1af57287d3f6749d90455b3a7144fc6a0be86
                         </Stack>
                     </Stack>
                 </CardContent>
