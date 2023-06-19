@@ -58,7 +58,7 @@ const lightTheme = createTheme({
         h2: { fontSize: 40 },
         h3: { fontSize: 32 },
         h4: { fontSize: 28 },
-        body1: { fontFamily: "Jaldi", fontSize: 20 },
+        body1: { fontFamily: "Jaldi", fontSize: 20, lineHeight: "1.25em" },
         body2: { fontFamily: "Jaldi" },
     },
     components: {
