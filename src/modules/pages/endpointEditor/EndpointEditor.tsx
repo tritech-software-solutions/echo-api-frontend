@@ -24,6 +24,8 @@ import {
     styled,
     IconButton,
     SelectChangeEvent,
+    Checkbox,
+    FormControlLabel,
 } from "@mui/material";
 import { BoxProps, Container, StackProps } from "@mui/system";
 import LineNumberInput from "../../general/LineNumberedInput/LinedNumberedInput";
@@ -31,6 +33,7 @@ import LineNumberInput from "../../general/LineNumberedInput/LinedNumberedInput"
 type EndpointParameter = {
     name: string;
     value: string;
+    required: boolean;
     type: EndpointParameterType;
 };
 
@@ -49,9 +52,9 @@ type State = {
     parameters: EndpointParameter[];
 };
 
-const TitleRowStack = styled((props: StackProps) => <Stack direction={"row"} spacing={2} width={"100%"} {...props} />)<StackProps>(
-    ({ theme }) => ({})
-);
+const TitleRowStack = styled((props: StackProps) => (
+    <Stack direction={"row"} spacing={2} width={"100%"} {...props} />
+))<StackProps>(({ theme }) => ({}));
 
 class EndpointEditor extends React.Component<Props, State> {
     constructor(props: Props) {
@@ -94,7 +97,12 @@ class EndpointEditor extends React.Component<Props, State> {
                                         onBlur={this.handleEndpointChange}
                                         defaultValue={this.state.endpoint}
                                     />
-                                    <Button color="secondary" variant="contained" sx={{ margin: "auto 0" }} onFocus={this.handleNewTitle}>
+                                    <Button
+                                        color="secondary"
+                                        variant="contained"
+                                        sx={{ margin: "auto 0" }}
+                                        onFocus={this.handleNewTitle}
+                                    >
                                         Submit
                                     </Button>
                                 </TitleRowStack>
@@ -127,11 +135,12 @@ class EndpointEditor extends React.Component<Props, State> {
 
                             {this.state.parameters.map((value, index) => {
                                 return (
-                                    <Stack spacing={1} direction={"row"}>
+                                    <Stack spacing={1} direction={"row"} key={index}>
                                         <TextField
                                             id={`param-name-input-${index}`}
                                             label="Name"
                                             variant="outlined"
+                                            required
                                             value={this.state.parameters[index].name}
                                             onChange={this.updateParameterName.bind(this, index)}
                                         />
@@ -139,6 +148,7 @@ class EndpointEditor extends React.Component<Props, State> {
                                             id={`param-value-input-${index}`}
                                             label="Value"
                                             variant="outlined"
+                                            required
                                             value={this.state.parameters[index].value}
                                             onChange={this.updateParameterValue.bind(this, index)}
                                         />
@@ -156,6 +166,18 @@ class EndpointEditor extends React.Component<Props, State> {
                                                 <MenuItem value={EndpointParameterType.Boolean}>Boolean</MenuItem>
                                             </Select>
                                         </FormControl>
+                                        <FormControlLabel
+                                            control={
+                                                <Checkbox
+                                                    defaultChecked
+                                                    id={`param-required-input-${index}`}
+                                                    value={this.state.parameters[index].required}
+                                                    onChange={this.updateParameterRequired.bind(this, index)}
+                                                />
+                                            }
+                                            label="Required"
+                                            labelPlacement="start"
+                                        />
                                         <IconButton onClick={this.removeParameter.bind(this, index)}>
                                             <RemoveIcon />
                                         </IconButton>
@@ -169,7 +191,8 @@ class EndpointEditor extends React.Component<Props, State> {
                                 Response
                             </Typography>
                             <Stack spacing={1} direction={"row"}>
-                                <TextField id="outlined-number" label="Status" type="number" sx={{ maxWidth: "15em" }} />
+                                {" "}
+                                <TextField id="outlined-number" label="Status" type="number" sx={{ maxWidth: "15em" }} required />
                             </Stack>
                             <LineNumberInput label="Body" />
                         </Stack>
@@ -204,6 +227,7 @@ class EndpointEditor extends React.Component<Props, State> {
         newParams.push({
             name: "",
             value: "",
+            required: false,
             type: EndpointParameterType.Any,
         });
         this.setState({ parameters: newParams });
@@ -227,6 +251,11 @@ class EndpointEditor extends React.Component<Props, State> {
 
     updateParameterType(index: number, evt: SelectChangeEvent<EndpointParameterType>) {
         this.state.parameters[index].type = evt.target.value as EndpointParameterType;
+        this.setState({ parameters: this.state.parameters });
+    }
+
+    updateParameterRequired(index: number, evt: ChangeEvent<HTMLInputElement>, checked: boolean) {
+        this.state.parameters[index].required = checked;
         this.setState({ parameters: this.state.parameters });
     }
 
