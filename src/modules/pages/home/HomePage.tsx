@@ -40,7 +40,10 @@ class HomePage extends React.Component {
                             </CardContent>
                             <CardActions>
                                 <Button
-                                    sx={{ background: "linear-gradient(135deg, rgba(255,255,255,.1) 0%, rgba(27,179,169,1) 52% )" }}
+                                    sx={{
+                                        background:
+                                            "linear-gradient(135deg, rgba(255,255,255,.1) 0%, rgba(27,179,169,1) 25%, rgba(27,179,169,1) 52% )",
+                                    }}
                                     variant="contained"
                                     color="primary"
                                 >
@@ -61,7 +64,14 @@ class HomePage extends React.Component {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button startIcon={<VisibilityIcon />} color="secondary">
+                                <Button
+                                    sx={{
+                                        background:
+                                            "linear-gradient(135deg, rgba(255,255,255,.1) 0%, rgba(27,179,169,1) 25%, rgba(27,179,169,1) 52% )",
+                                    }}
+                                    variant="contained"
+                                    color="primary"
+                                >
                                     View Current Simulations
                                 </Button>
                             </CardActions>
@@ -88,7 +98,14 @@ class HomePage extends React.Component {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button startIcon={<BarChartIcon />} color="secondary">
+                                <Button
+                                    sx={{
+                                        background:
+                                            "linear-gradient(135deg, rgba(255,255,255,.1) 0%, rgba(27,179,169,1) 25%, rgba(27,179,169,1) 52% )",
+                                    }}
+                                    variant="contained"
+                                    color="primary"
+                                >
                                     Explore Analytics
                                 </Button>
                             </CardActions>
