@@ -65,6 +65,14 @@ class LineNumberInput extends React.Component<Props, State> {
         this.setState({ value, lineNumbers });
     }
 
+    handleKeyDownChange = (value: string) => {
+        let lineNumbers = value.split("\n").length;
+        if (value === "") {
+            lineNumbers = 0;
+        }
+        this.setState({ value, lineNumbers });
+    };
+
     handleKeyDown = (evt: React.KeyboardEvent<HTMLDivElement>) => {
         if (evt.target instanceof HTMLInputElement || evt.target instanceof HTMLTextAreaElement) {
             const textArea = evt.target as HTMLTextAreaElement | HTMLInputElement;
