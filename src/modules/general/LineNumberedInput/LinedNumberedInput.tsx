@@ -58,6 +58,14 @@ class LineNumberInput extends React.Component<Props, State> {
         this.setState({ value, lineNumbers });
     };
 
+    handleKeyDownChange = (value: string) => {
+        let lineNumbers = value.split("\n").length;
+        if (value === "") {
+            lineNumbers = 0;
+        }
+        this.setState({ value, lineNumbers });
+    };
+
     handleKeyDown = (evt: React.KeyboardEvent<HTMLDivElement>) => {
         if (evt.key === "Tab") {
             evt.preventDefault();
@@ -76,7 +84,7 @@ class LineNumberInput extends React.Component<Props, State> {
                     textArea.setSelectionRange(caretPosition, caretPosition);
                 }
 
-                this.setState({ value: newValue });
+                this.handleKeyDownChange(value);
                 //this.handleChange({ target: textArea } as React.ChangeEvent<HTMLTextAreaElement>);
             }
         }
