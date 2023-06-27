@@ -1,14 +1,11 @@
 import "./EndpointViewer.css";
 
-import Card from "../../general/Card/Card";
 import React from "react";
-import Collapsible from "../../general/Collapsible/Collapsible";
+import LineNumberInput from "../../general/LineNumberedInput/LinedNumberedInput";
 
 class EndpointViewer extends React.Component {
     render() {
-        return (
-            <div>Viewer Here</div>
-        );
+        return <p>Endpoint Viewer Here</p>;
     }
 }
 
