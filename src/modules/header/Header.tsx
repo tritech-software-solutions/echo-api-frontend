@@ -7,17 +7,20 @@ import { Stack } from "@mui/system";
 
 const HEADER_HEIGHT = "130px";
 
-const HeaderLink = (props: any) => (
-    <Link
-        width="115px"
-        height="auto"
-        underline={props.isActive ? "always" : "none"}
-        align="center"
-        color="#6d6d6d"
-        component={DOMLink}
-        {...props}
-    ></Link>
-);
+const HeaderLink = (props: any) => {
+    const { isActive, ...passedProps } = props;
+    return (
+        <Link
+            width="115px"
+            height="auto"
+            underline={isActive ? "always" : "none"}
+            align="center"
+            color="#6d6d6d"
+            component={DOMLink}
+            {...passedProps}
+        ></Link>
+    );
+};
 
 type State = {
     activeLink: string;

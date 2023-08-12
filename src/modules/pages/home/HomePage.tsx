@@ -5,24 +5,10 @@ import React from "react";
 import GraphImage from "../../../assets/graph2.png";
 import ArrowsImage from "../../../assets/arrows.png";
 
-import AddIcon from "@mui/icons-material/Add";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import BarChartIcon from "@mui/icons-material/BarChart";
 
-import { Link } from "react-router-dom";
-import {
-    Box,
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    CardMedia,
-    Container,
-    CssBaseline,
-    Grid,
-    Stack,
-    Typography,
-} from "@mui/material";
+import { Button, Card, CardActions, CardContent, Container, Grid, Typography } from "@mui/material";
 
 class HomePage extends React.Component {
     buttonText = ["Create New Simulator", "View Current Simulations", "View Analytics"];
