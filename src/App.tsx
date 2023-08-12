@@ -12,6 +12,7 @@ import Analytics from "./modules/pages/analytics/Analytics";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { fontSize } from "@mui/system";
+import Registration from "./modules/pages/registration/Registration";
 
 const lightTheme = createTheme({
     palette: {
@@ -157,6 +158,7 @@ function App() {
                             <Route path={"/view"} element={<EndpointViewer />} />
                             <Route path={"/analytics"} element={<Analytics />} />
                             <Route path={"/settings"} element={<Settings />} />
+                            <Route path={"/registration"} element={<Registration />} />
                         </Routes>
                     </div>
                 </Router>
