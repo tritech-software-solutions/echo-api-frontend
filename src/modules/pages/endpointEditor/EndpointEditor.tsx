@@ -1,13 +1,8 @@
-import "./EndpointEditor.css";
-
 import React, { ChangeEvent } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import EditIcon from "@mui/icons-material/Edit";
 import {
-    Accordion,
-    AccordionDetails,
-    AccordionSummary,
     Box,
     Card,
     Button,
@@ -19,7 +14,6 @@ import {
     Typography,
     CardContent,
     Divider,
-    List,
     Stack,
     styled,
     IconButton,
@@ -27,8 +21,10 @@ import {
     Checkbox,
     FormControlLabel,
     Modal,
+    CardActionArea,
+    CardActions,
 } from "@mui/material";
-import { BoxProps, Container, StackProps } from "@mui/system";
+import { Container, StackProps } from "@mui/system";
 import LineNumberInput from "../../general/LineNumberedInput/LinedNumberedInput";
 
 const modalStyle = {
@@ -98,8 +94,8 @@ class EndpointEditor extends React.Component<Props, State> {
 
     render() {
         return (
-            <Box sx={{ display: "flex", flexGrow: 1, margin: "20px", position: "relative" }}>
-                <Card sx={{ flexGrow: 1 }}>
+            <Container>
+                <Card sx={{ flexGrow: 1, position: "relative" }}>
                     <CardContent>
                         <Stack divider={<Divider orientation="vertical" flexItem />} spacing={1}>
                             <Stack direction="row" justifyContent="space-between">
@@ -235,25 +231,19 @@ class EndpointEditor extends React.Component<Props, State> {
                             </Stack>
                         </Stack>
                     </CardContent>
+                    <CardActions sx={{ p: 2, pt: 0 }}>
+                        <Button
+                            sx={{
+                                background: "linear-gradient(135deg, rgba(255,255,255,.1) 0%, rgba(27,179,169,1) 52% )",
+                            }}
+                            variant="contained"
+                            color="primary"
+                            onClick={this.save.bind(this)}
+                        >
+                            Save
+                        </Button>
+                    </CardActions>
                 </Card>
-                <Box
-                    sx={{
-                        position: "absolute",
-                        height: 0,
-                        bottom: "60px",
-                        right: "20px",
-                    }}
-                >
-                    <Button
-                        sx={{
-                            background: "linear-gradient(135deg, rgba(255,255,255,.1) 0%, rgba(27,179,169,1) 52% )",
-                        }}
-                        variant="contained"
-                        color="primary"
-                    >
-                        Save
-                    </Button>
-                </Box>
 
                 {/* Modal */}
 
@@ -305,7 +295,7 @@ class EndpointEditor extends React.Component<Props, State> {
                         </CardContent>
                     </Card>
                 </Modal>
-            </Box>
+            </Container>
         );
     }
 
@@ -394,6 +384,12 @@ class EndpointEditor extends React.Component<Props, State> {
         this.state.headers[index].value = evt.target.value;
         this.setState({ headers: this.state.headers });
     }
+
+    // #endregion
+
+    // #region Saving
+
+    save() {}
 
     // #endregion
 }
