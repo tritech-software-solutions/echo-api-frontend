@@ -22,13 +22,7 @@ class Header extends React.Component<Props, State> {
     };
 
     handleClick = (link: string) => {
-        let headerSize;
-        if (link === "/") {
-            headerSize = "md";
-        } else {
-            headerSize = "lg";
-        }
-        this.setState({ activeLink: link, headerSize: headerSize });
+        this.setState({ activeLink: link });
     };
 
     render() {
@@ -57,20 +51,6 @@ class Header extends React.Component<Props, State> {
                             onClick={() => this.handleClick("/view")}
                         >
                             <div className="text">My API Sims</div>
-                        </Link>
-                        <Link
-                            to="/analytics"
-                            className={`noSelect noDecoration headerTitle ${activeLink === "/analytics" ? "active" : ""}`}
-                            onClick={() => this.handleClick("/analytics")}
-                        >
-                            <div className="text">Analytics</div>
-                        </Link>
-                        <Link
-                            to="/settings"
-                            className={`noSelect noDecoration headerTitle ${activeLink === "/settings" ? "active" : ""}`}
-                            onClick={() => this.handleClick("/settings")}
-                        >
-                            <div className="text">Settings</div>
                         </Link>
                     </Stack>
                 </AppBar>
