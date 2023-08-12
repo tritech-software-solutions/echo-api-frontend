@@ -1,16 +1,26 @@
-import "./Header.css";
-
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link as DOMLink } from "react-router-dom";
 
 import { ReactComponent as Logo } from "../../assets/logo.svg";
-import { Box, Tab, Tabs, AppBar, Container, Toolbar, Typography, IconButton } from "@mui/material";
-import { faAlignCenter } from "@fortawesome/free-solid-svg-icons";
-import { Stack, margin, padding, textAlign } from "@mui/system";
+import { Box, Link, AppBar } from "@mui/material";
+import { Stack } from "@mui/system";
+
+const HEADER_HEIGHT = "130px";
+
+const HeaderLink = (props: any) => (
+    <Link
+        width="115px"
+        height="auto"
+        underline={props.isActive ? "always" : "none"}
+        align="center"
+        color="#6d6d6d"
+        component={DOMLink}
+        {...props}
+    ></Link>
+);
 
 type State = {
     activeLink: string;
-    headerSize: string;
 };
 
 type Props = {};
@@ -18,7 +28,6 @@ type Props = {};
 class Header extends React.Component<Props, State> {
     state = {
         activeLink: "/",
-        headerSize: "md",
     };
 
     handleClick = (link: string) => {
@@ -31,27 +40,31 @@ class Header extends React.Component<Props, State> {
         return (
             <Box
                 sx={{ flexGrow: 1, marginLeft: "auto", marginRight: "auto", marginBottom: "2em", marginTop: "1em" }}
-                maxWidth={this.state.headerSize}
+                maxWidth={"sm"}
             >
                 <AppBar sx={{ background: "transparent" }} elevation={0} position="static">
                     <Stack sx={{ flexGrow: 1, justifyContent: "space-between", flexDirection: "row", alignItems: "center" }}>
-                        <Link to="/" className={`noSelect noDecoration headerTitle `} onClick={() => this.handleClick("/")}>
-                            <Logo className="logo" />
-                        </Link>
-                        <Link
-                            to="/endpoint"
-                            className={`noSelect noDecoration headerTitle ${activeLink === "/endpoint" ? "active" : ""}`}
-                            onClick={() => this.handleClick("/endpoint")}
-                        >
-                            <div className="text">Build API Sim</div>
-                        </Link>
-                        <Link
+                        <HeaderLink
                             to="/view"
-                            className={`noSelect noDecoration headerTitle ${activeLink === "/view" ? "active" : ""}`}
+                            isActive={this.state.activeLink == "/view"}
                             onClick={() => this.handleClick("/view")}
                         >
-                            <div className="text">My API Sims</div>
-                        </Link>
+                            All API Sims
+                        </HeaderLink>
+                        <HeaderLink
+                            to="/"
+                            onClick={() => this.handleClick("/")}
+                            sx={{ display: "flex", alignItems: "center", justifyContent: "space-around" }}
+                        >
+                            <Logo className="logo" width={61} height={61} />
+                        </HeaderLink>
+                        <HeaderLink
+                            to="/endpoint"
+                            isActive={this.state.activeLink == "/endpoint"}
+                            onClick={() => this.handleClick("/endpoint")}
+                        >
+                            Create API Sim
+                        </HeaderLink>
                     </Stack>
                 </AppBar>
             </Box>
