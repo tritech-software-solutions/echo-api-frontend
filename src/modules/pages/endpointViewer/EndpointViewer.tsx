@@ -30,27 +30,7 @@ class EndpointViewer extends React.Component<Props, State> {
     }
 
     componentDidMount(): void {
-        fetch(window.location.origin + "/view_endpoints", {
-            method: "GET",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-        })
-            .then((response) => response.json())
-            .then((response) => {
-                const endpointPreviews: EndpointPreview[] = [];
-                for (const endpoint of response) {
-                    endpointPreviews.push({
-                        shouldRun: true,
-                        ...endpoint,
-                    });
-                }
-                this.setState({
-                    hasRetrievedData: true,
-                    previews: endpointPreviews,
-                });
-            });
+        this.refreshEndpoints();
     }
 
     render() {
@@ -78,12 +58,16 @@ class EndpointViewer extends React.Component<Props, State> {
                 <List>
                     {this.state.previews.map((val, index) => (
                         <ListItem key={index}>
-                            <Checkbox onChange={this.onShouldRunCheckboxToggled.bind(this, index)} checked={val.shouldRun} sx={{ mr: 1 }} />
+                            <Checkbox
+                                onChange={this.onShouldRunCheckboxToggled.bind(this, index)}
+                                checked={val.shouldRun}
+                                sx={{ mr: 1 }}
+                            />
                             <ListItemText primary={val.name + " - " + val.endpoint} secondary={val.parameterNames.join(", ")} />
                             <IconButton>
                                 <ModeEditIcon />
                             </IconButton>
-                            <IconButton>
+                            <IconButton onClick={this.deleteEndpoint.bind(this, val)}>
                                 <DeleteIcon />
                             </IconButton>
                         </ListItem>
@@ -97,10 +81,53 @@ class EndpointViewer extends React.Component<Props, State> {
     }
 
     onShouldRunCheckboxToggled(index: number, evt: React.ChangeEvent<HTMLInputElement>, checked: boolean) {
-        this.state.previews[index].shouldRun = checked;
+        const newPreviews = this.state.previews.slice();
+        newPreviews[index].shouldRun = checked;
         this.setState({
-            previews: this.state.previews,
+            previews: newPreviews,
         });
+    }
+
+    deleteEndpoint(endpoint: EndpointPreview, evt: React.MouseEvent) {
+        const newPreviews = this.state.previews.slice();
+        newPreviews.splice(this.state.previews.indexOf(endpoint), 1);
+        this.setState({
+            previews: newPreviews,
+        });
+
+        fetch(window.location.origin + "/delete_endpoint", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                fileName: endpoint.name,
+            }),
+        }).then(() => this.refreshEndpoints());
+    }
+
+    refreshEndpoints() {
+        fetch(window.location.origin + "/view_endpoints", {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                const endpointPreviews: EndpointPreview[] = [];
+                for (const endpoint of response) {
+                    endpointPreviews.push({
+                        shouldRun: true,
+                        ...endpoint,
+                    });
+                }
+                this.setState({
+                    hasRetrievedData: true,
+                    previews: endpointPreviews,
+                });
+            });
     }
 }
 
