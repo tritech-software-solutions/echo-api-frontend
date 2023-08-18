@@ -21,7 +21,6 @@ import {
     Checkbox,
     FormControlLabel,
     Modal,
-    CardActionArea,
     CardActions,
 } from "@mui/material";
 import { Container, StackProps } from "@mui/system";
@@ -64,6 +63,7 @@ type State = {
     headerModalOpen: boolean;
     isEditingTitle: boolean;
     name: string;
+    status: string;
     endpoint: string;
     parameters: EndpointParameter[];
     headers: ResponseHeader[];
@@ -74,6 +74,8 @@ const TitleRowStack = styled((props: StackProps) => (
 ))<StackProps>(({ theme }) => ({}));
 
 class EndpointEditor extends React.Component<Props, State> {
+    bodyInput: React.RefObject<LineNumberInput>;
+
     constructor(props: Props) {
         super(props);
 
@@ -86,10 +88,13 @@ class EndpointEditor extends React.Component<Props, State> {
             headerModalOpen: false,
             isEditingTitle: false,
             name: "Example",
+            status: "200",
             endpoint: "Endpoint",
             parameters: [],
             headers: [],
         };
+
+        this.bodyInput = React.createRef();
     }
 
     render() {
@@ -224,10 +229,12 @@ class EndpointEditor extends React.Component<Props, State> {
                                         label="Status"
                                         type="number"
                                         sx={{ maxWidth: "15em" }}
+                                        value={this.state.status}
+                                        onChange={(evt) => this.setState({ status: evt.target.value })}
                                         required
                                     />
                                 </Stack>
-                                <LineNumberInput label="Body" />
+                                <LineNumberInput ref={this.bodyInput} label="Body" />
                             </Stack>
                         </Stack>
                     </CardContent>
@@ -389,7 +396,22 @@ class EndpointEditor extends React.Component<Props, State> {
 
     // #region Saving
 
-    save() {}
+    save() {
+        fetch(window.location.origin + "/new_endpoint", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: this.state.name,
+                endpoint: this.state.endpoint,
+                status: this.state.status,
+                parameters: this.state.parameters,
+                headers: this.state.headers,
+                body: this.bodyInput.current?.state.value,
+            }),
+        });
+    }
 
     // #endregion
 }
